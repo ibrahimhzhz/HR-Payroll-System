@@ -5,23 +5,25 @@ import { useState } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function Dashboard() {
-  // For demo purposes, allow role switching
   const [role, setRole] = useState<UserRole>(currentUser.role);
-
-  // Update the mock user role for the session (in a real app this would be backend auth)
   currentUser.role = role;
 
   return (
     <Layout>
-      <div className="flex items-center justify-between space-y-2">
-        <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
-        <div className="flex items-center space-x-2">
-          <span className="text-sm text-muted-foreground">View as:</span>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+            Welcome back, <span className="text-primary italic">Alex</span>
+          </h2>
+          <p className="text-muted-foreground mt-1 font-medium">Here's what's happening today at Acme Corp.</p>
+        </div>
+        <div className="flex items-center gap-3 bg-white/50 backdrop-blur-sm p-2 rounded-2xl border border-white shadow-sm">
+          <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground px-2">Role Switch</span>
           <Select value={role} onValueChange={(val: UserRole) => setRole(val)}>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-[140px] h-10 rounded-xl border-none bg-background shadow-sm hover:shadow-md transition-all">
               <SelectValue placeholder="Select role" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="rounded-xl border-border shadow-xl">
               <SelectItem value="employee">Employee</SelectItem>
               <SelectItem value="manager">Manager</SelectItem>
               <SelectItem value="admin">HR Admin</SelectItem>
@@ -30,9 +32,11 @@ export default function Dashboard() {
         </div>
       </div>
       
-      {role === "employee" && <EmployeeDashboard />}
-      {role === "manager" && <ManagerDashboard />}
-      {role === "admin" && <AdminDashboard />}
+      <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
+        {role === "employee" && <EmployeeDashboard />}
+        {role === "manager" && <ManagerDashboard />}
+        {role === "admin" && <AdminDashboard />}
+      </div>
     </Layout>
   );
 }

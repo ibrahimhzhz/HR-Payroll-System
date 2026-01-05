@@ -1,0 +1,111 @@
+Refine the existing HR & Payroll Management System to be visually stunning, modern, and professional, with a distinctive yet calm color palette that feels trustworthy, elegant, and premium.
+
+The interface should feel designed with intention — clean, spacious, and cohesive.
+
+Signature Color Palette (Apply Consistently)
+Primary Color
+
+Deep Slate Blue (#2F3A5F)
+
+Used for primary actions, active states, and key highlights
+
+Conveys trust, stability, and professionalism
+
+Secondary Accent
+
+Soft Sage Green (#7FAF9B)
+
+Used for approvals, success states, and positive indicators
+
+Calm and reassuring without feeling “corporate green”
+
+Warm Highlight
+
+Muted Sand (#E8DCC8)
+
+Used sparingly for subtle backgrounds and emphasis areas
+
+Adds warmth and softness to the UI
+
+Background Base
+
+Light Mist (#F6F7FB)
+
+Main app background
+
+Keeps the interface airy and reduces visual fatigue
+
+Text & Neutrals
+
+Charcoal (#1F2933) – Primary text
+
+Cool Gray (#6B7280) – Secondary text, labels
+
+Soft Border Gray (#E5E7EB) – Dividers and borders
+
+Visual Design Guidelines
+Hierarchy & Contrast
+
+Use the primary color for CTAs and active navigation
+
+Use accent colors only to communicate meaning (status, progress)
+
+Maintain strong contrast for accessibility
+
+Component Styling
+
+Buttons: rounded corners, subtle shadow, solid primary color
+
+Status pills: muted fills with readable text
+
+Cards: soft elevation, warm-neutral background where appropriate
+
+Dashboards
+
+Use card groupings with restrained color accents
+
+Avoid full-width color blocks
+
+Let typography and spacing lead, color supports
+
+Forms
+
+Light backgrounds with clear field separation
+
+Focus states use primary color glow or border
+
+Error and success states are soft, not aggressive
+
+Tables
+
+Alternating row backgrounds using very light neutrals
+
+Status tags in sage green, slate blue, or muted amber tones
+
+Micro-Interactions
+
+Hover states slightly deepen the primary color
+
+Smooth transitions (150–250ms)
+
+Gentle feedback, no harsh animations
+
+Consistency Rules
+
+Use this palette across all pages and states
+
+Avoid introducing new colors unless absolutely necessary
+
+Keep visual language cohesive and restrained
+
+Final Outcome
+
+The product should feel:
+
+Thoughtfully designed
+
+Calm and confident
+
+Premium but approachable
+
+Instantly credible in a real workplace
