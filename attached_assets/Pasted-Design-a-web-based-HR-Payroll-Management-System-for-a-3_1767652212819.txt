@@ -1,0 +1,119 @@
+Design a web-based HR & Payroll Management System for a 30-employee company.
+The focus is on user experience, clarity, and role-based workflows, not enterprise complexity.
+
+User Roles
+
+Employee
+
+Line Manager
+
+HR / Admin
+
+Each role should see a tailored dashboard and only the features relevant to them.
+
+Core Pages & UX Requirements
+1. Dashboards (Role-Based)
+
+Employee Dashboard
+
+Quick actions: Request Leave, Request Work From Home
+
+Current leave balance
+
+Upcoming approved leaves
+
+Latest payroll summary
+
+Notifications (pending approvals, document expiry)
+
+Manager Dashboard
+
+Approval queue for leave and WFH requests
+
+Team availability overview
+
+Quick approve/reject actions
+
+HR/Admin Dashboard
+
+Payroll status (Draft / Approved / Sent to Xero)
+
+Document expiry alerts
+
+Employee overview
+
+End-of-service gratuity alerts
+
+2. Payroll (Phase 1 Priority)
+
+Payroll overview page with monthly payroll runs
+
+Payroll detail view showing:
+
+Salary breakdown
+
+Leave deductions
+
+Clear “Send to Xero” action with confirmation
+
+Read-only payslip view for employees
+
+3. Employee Records (Phase 2)
+
+Employee directory with search and department filters
+
+Individual employee profile pages with tabs:
+
+Overview
+
+Job details
+
+Documents
+
+Leave summary
+
+Payroll summary (HR only)
+
+Secure document upload and expiry tracking
+
+4. Leave & WFH Management (Phase 3)
+
+Leave request form with calendar picker and leave balance visibility
+
+Work-from-home request form (lightweight, minimal fields)
+
+Request history with status indicators
+
+Department-based approval routing
+
+5. Document Management
+
+List view with document name, expiry date, and status indicators
+
+Automated alerts for expiring documents
+
+Clear call-to-action to upload updates
+
+UX & UI Guidelines
+
+Clean, professional design suitable for internal tools
+
+Minimal cognitive load and clear hierarchy
+
+Role-based navigation and permissions
+
+Status visibility for all actions
+
+Friendly empty states and confirmation feedback
+
+Desktop-first design (responsive where appropriate)
+
+Design Output Expectations
+
+Clear page structure and navigation
+
+Realistic UI copy (no lorem ipsum)
+
+Modular components that can scale
+
+Focus on usability and clarity over visual flair
