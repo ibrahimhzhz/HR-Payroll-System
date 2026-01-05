@@ -22,7 +22,7 @@ export default function Dashboard() {
           <h2 className="text-4xl font-black tracking-tighter text-foreground lg:text-5xl">
             Welcome back, <span className="text-gradient">Alex</span>
           </h2>
-          <p className="text-muted-foreground mt-3 font-medium text-lg">System monitoring is active. Everything looks good.</p>
+          <p className="text-muted-foreground mt-3 font-medium text-lg">System monitoring is active. Everything looks good at Estadeem.</p>
         </div>
         <div className="flex items-center gap-4 bg-white p-3 rounded-[1.5rem] shadow-xl shadow-indigo-500/5 border border-white/50 relative z-10">
           <div className="px-3">

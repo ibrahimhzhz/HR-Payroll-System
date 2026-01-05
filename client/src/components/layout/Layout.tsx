@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <header className="flex h-14 items-center gap-4 border-b bg-white/50 backdrop-blur-sm px-4 lg:h-[60px] lg:px-6 md:hidden z-40">
           <MobileSidebar />
           <div className="w-full flex-1">
-            <span className="font-bold tracking-tight">Acme HR</span>
+            <span className="font-bold tracking-tight">Estadeem Consultancy</span>
           </div>
         </header>
         {/* Ambient background is handled in index.css body gradient */}

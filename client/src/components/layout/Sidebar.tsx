@@ -39,11 +39,11 @@ export function Sidebar() {
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-primary opacity-10 blur-3xl -mr-16 -mt-16 rounded-full" />
         <Link href="/" className="flex items-center gap-3 relative z-10">
           <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-primary text-white shadow-lg shadow-indigo-500/20">
-            <span className="text-2xl font-black tracking-tighter italic">Ac</span>
+            <span className="text-2xl font-black tracking-tighter italic">Es</span>
           </div>
           <div className="flex flex-col">
-            <span className="font-black text-xl leading-tight tracking-tighter">Acme HR</span>
-            <span className="text-[10px] uppercase tracking-[0.3em] opacity-50 font-black">Enterprise OS</span>
+            <span className="font-black text-xl leading-tight tracking-tighter">Estadeem</span>
+            <span className="text-[10px] uppercase tracking-[0.3em] opacity-50 font-black">Consultancy</span>
           </div>
         </Link>
       </div>
