@@ -56,73 +56,69 @@
   --font-heading: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* SIGNATURE COLOR PALETTE - Professional & Premium */
+/* CONTEMPORARY SAAS AESTHETIC - Midnight Indigo & Electric Blue */
 :root {
-  /* Background Base: Light Mist */
-  --background: 225 30% 97%; 
-  --foreground: 210 24% 16%; /* Charcoal (#1F2933) */
+  /* Background: Light Neutral (#F7F9FC) */
+  --background: 220 33% 98%; 
+  --foreground: 228 39% 15%; /* Midnight Indigo Base */
 
   /* Cards */
   --card: 0 0% 100%;
-  --card-foreground: 210 24% 16%;
+  --card-foreground: 228 39% 15%;
 
   /* Popovers */
   --popover: 0 0% 100%;
-  --popover-foreground: 210 24% 16%;
+  --popover-foreground: 228 39% 15%;
 
-  /* Primary: Deep Slate Blue (#2F3A5F) */
-  --primary: 226 34% 28%; 
-  --primary-foreground: 0 0% 98%;
+  /* Primary Base: Midnight Indigo (#1E2A5A) */
+  --primary: 228 50% 24%; 
+  --primary-foreground: 0 0% 100%;
 
-  /* Secondary Accent: Soft Sage Green (#7FAF9B) */
-  --secondary: 158 24% 59%; 
-  --secondary-foreground: 226 34% 28%;
+  /* Secondary / Success: Mint Green (#2ED3A6) */
+  --secondary: 164 64% 50%; 
+  --secondary-foreground: 228 50% 24%;
 
-  /* Muted / Warm Highlight: Muted Sand (#E8DCC8) */
-  --muted: 38 36% 85%;
-  --muted-foreground: 215 16% 47%; /* Cool Gray */
+  /* Muted */
+  --muted: 220 14% 94%;
+  --muted-foreground: 220 14% 45%;
 
-  /* Accent */
-  --accent: 38 36% 85%;
-  --accent-foreground: 226 34% 28%;
+  /* Accent: Gradient Base (Electric Blue) */
+  --accent: 201 100% 68%;
+  --accent-foreground: 228 50% 24%;
 
-  /* Destructive */
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 210 40% 98%;
+  /* Destructive: Coral Pink (#FF6B6B) */
+  --destructive: 0 100% 71%;
+  --destructive-foreground: 0 0% 100%;
 
-  /* Border/Input: Soft Border Gray */
-  --border: 210 14% 89%;
-  --input: 210 14% 89%;
-  --ring: 226 34% 28%;
+  /* Border/Input */
+  --border: 220 14% 90%;
+  --input: 220 14% 90%;
+  --ring: 231 77% 57%; /* Electric Blue tint for ring */
 
-  /* Sidebar */
-  --sidebar: 226 34% 28%; /* Deep Slate Blue */
-  --sidebar-foreground: 0 0% 98%;
-  --sidebar-primary: 158 24% 59%;
-  --sidebar-primary-foreground: 226 34% 28%;
-  --sidebar-accent: 226 34% 22%;
-  --sidebar-accent-foreground: 0 0% 98%;
-  --sidebar-border: 226 34% 22%;
-  --sidebar-ring: 158 24% 59%;
+  /* Sidebar: Midnight Indigo (#1E2A5A) */
+  --sidebar: 228 50% 24%;
+  --sidebar-foreground: 220 33% 98%;
+  --sidebar-primary: 231 77% 57%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 228 50% 20%;
+  --sidebar-accent-foreground: 220 33% 98%;
+  --sidebar-border: 228 50% 18%;
+  --sidebar-ring: 231 77% 57%;
 
-  --radius: 0.625rem;
+  --radius: 0.75rem;
 }
 
 .dark {
-  --background: 210 24% 10%;
-  --foreground: 0 0% 98%;
+  --background: 228 39% 10%;
+  --foreground: 220 33% 98%;
 
-  --card: 210 24% 12%;
-  --card-foreground: 0 0% 98%;
+  --card: 228 39% 12%;
+  --card-foreground: 220 33% 98%;
 
-  --primary: 158 24% 59%;
-  --primary-foreground: 226 34% 28%;
+  --primary: 231 77% 57%;
+  --primary-foreground: 228 50% 24%;
 
-  --secondary: 226 34% 28%;
-  --secondary-foreground: 0 0% 98%;
-
-  --border: 210 24% 20%;
-  --input: 210 24% 20%;
+  --border: 228 39% 18%;
 }
 
 @layer base {
@@ -137,8 +133,19 @@
   }
 }
 
-@layer components {
-  .card-premium {
-    @apply bg-card border border-border shadow-sm hover:shadow-md transition-all duration-300;
+@layer utilities {
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #3B4FE4 0%, #5EC5FF 100%);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #3B4FE4 0%, #5EC5FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl shadow-indigo-500/5;
+  }
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 hover:-translate-y-0.5;
   }
 }
