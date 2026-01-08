@@ -19,7 +19,7 @@ export default function Payroll() {
 
   return (
     <Layout>
-      <div className="flex items-center justify-between space-y-2">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-6">
         <div>
           <h2 className="text-3xl font-bold tracking-tight">Payroll</h2>
           <p className="text-muted-foreground">Manage monthly payroll runs and payslips.</p>

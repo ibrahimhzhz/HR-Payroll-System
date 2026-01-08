@@ -48,12 +48,12 @@ export interface PayrollRun {
 // Mock Data
 export const currentUser: User = {
   id: "u1",
-  name: "Alex Morgan",
-  email: "alex.morgan@company.com",
+  name: "Ahmad Younis",
+  email: "ahmad.younis@company.com",
   role: "admin", // Default role for initial view, will add switcher
-  avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-  department: "Engineering",
-  position: "Senior Software Engineer",
+  avatar: "/AhmadYounisEstadeem.jpg",
+  department: "Executive",
+  position: "CEO",
   joinDate: "2022-03-15",
 };
 
@@ -135,7 +135,7 @@ export const documents: Document[] = [
     status: "valid",
     expiryDate: "2026-03-15",
     ownerId: "u1",
-    ownerName: "Alex Morgan",
+    ownerName: "Ahmad Younis",
   },
   {
     id: "d2",

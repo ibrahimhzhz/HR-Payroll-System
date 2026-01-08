@@ -6,6 +6,7 @@ import { Calendar, Clock, DollarSign, FileText, PlusCircle, Users, CheckCircle, 
 import { stats, currentUser, leaveRequests, payrollRuns, documents } from "@/lib/mockData";
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
+import { useToast } from "@/hooks/use-toast";
 
 const StatCard = ({ title, value, subtext, icon: Icon, colorClass = "text-primary", progress, gradient }: any) => (
   <Card className="overflow-hidden border-none shadow-xl shadow-indigo-500/5 bg-white hover-glow group relative">
@@ -182,6 +183,22 @@ export function EmployeeDashboard() {
 
 export function ManagerDashboard() {
   const pendingRequests = leaveRequests.filter(lr => lr.status === "pending");
+  const { toast } = useToast();
+
+  const handleApprove = (reqId: string, userName: string) => {
+    toast({
+      title: "Request Approved",
+      description: `${userName}'s leave request has been approved.`,
+    });
+  };
+
+  const handleReject = (reqId: string, userName: string) => {
+    toast({
+      title: "Request Rejected",
+      description: `${userName}'s leave request has been rejected.`,
+      variant: "destructive",
+    });
+  };
 
   return (
     <div className="grid gap-8">
@@ -213,10 +230,8 @@ export function ManagerDashboard() {
               {pendingRequests.map(req => (
                 <div key={req.id} className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 p-6 rounded-[2rem] bg-indigo-500/5 border border-white hover:bg-white hover:shadow-2xl hover:shadow-indigo-500/10 transition-all group">
                   <div className="flex items-center gap-5">
-                    <div className="h-16 w-16 rounded-[1.5rem] bg-gradient-primary p-0.5 shadow-lg group-hover:rotate-6 transition-transform">
-                       <div className="h-full w-full rounded-[1.4rem] bg-white flex items-center justify-center font-black text-xl text-gradient">
-                          {req.userName.charAt(0)}
-                       </div>
+                    <div className="h-16 w-16 rounded-[1.5rem] bg-indigo-500/10 border-2 border-indigo-500/20 flex items-center justify-center font-black text-2xl text-indigo-600 group-hover:bg-indigo-500/20 transition-all">
+                       {req.userName.split(' ').map(n => n.charAt(0)).join('')}
                     </div>
                     <div className="grid gap-1">
                       <p className="text-lg font-black tracking-tight">{req.userName}</p>
@@ -228,8 +243,21 @@ export function ManagerDashboard() {
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <Button variant="ghost" size="sm" className="h-12 px-6 rounded-2xl text-destructive font-black uppercase tracking-widest hover:bg-destructive/5">Reject</Button>
-                    <Button size="sm" className="h-12 px-8 rounded-2xl bg-gradient-primary hover:opacity-90 text-white font-black uppercase tracking-widest shadow-lg shadow-indigo-500/20">Authorize</Button>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="h-12 px-6 rounded-2xl text-destructive font-black uppercase tracking-widest hover:bg-destructive/5"
+                      onClick={() => handleReject(req.id, req.userName)}
+                    >
+                      Reject
+                    </Button>
+                    <Button 
+                      size="sm" 
+                      className="h-12 px-8 rounded-2xl bg-gradient-primary hover:opacity-90 text-white font-black uppercase tracking-widest shadow-lg shadow-indigo-500/20"
+                      onClick={() => handleApprove(req.id, req.userName)}
+                    >
+                      Authorize
+                    </Button>
                   </div>
                 </div>
               ))}

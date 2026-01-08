@@ -2,7 +2,7 @@ import { Sidebar, MobileSidebar } from "./Sidebar";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="grid min-h-screen w-full md:grid-cols-[240px_1fr] lg:grid-cols-[300px_1fr]">
+    <div className="grid min-h-screen w-full md:grid-cols-[180px_1fr] lg:grid-cols-[200px_1fr] xl:grid-cols-[240px_1fr]">
       <div className="hidden border-none md:block shadow-2xl z-50">
         <Sidebar />
       </div>
@@ -14,8 +14,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </header>
         {/* Ambient background is handled in index.css body gradient */}
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-8 lg:p-10 relative overflow-x-hidden">
-          {children}
+        <main className="flex flex-1 flex-col gap-6 px-4 py-6 sm:px-6 lg:gap-8 lg:px-8 lg:py-8 relative overflow-x-hidden">
+          <div className="w-full max-w-7xl mx-auto">
+            {children}
+          </div>
         </main>
       </div>
     </div>

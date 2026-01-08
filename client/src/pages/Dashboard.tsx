@@ -10,7 +10,7 @@ export default function Dashboard() {
 
   return (
     <Layout>
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 relative">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-12 relative">
         {/* Soft radial glow behind header */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] ambient-glow pointer-events-none -z-10" />
         
@@ -20,7 +20,7 @@ export default function Dashboard() {
             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-indigo-500/60">Operational View</span>
           </div>
           <h2 className="text-4xl font-black tracking-tighter text-foreground lg:text-5xl">
-            Welcome back, <span className="text-gradient">Alex</span>
+            Welcome back, <span className="text-gradient">Ahmad</span>
           </h2>
           <p className="text-muted-foreground mt-3 font-medium text-lg">System monitoring is active. Everything looks good at Estadeem.</p>
         </div>

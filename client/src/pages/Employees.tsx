@@ -18,7 +18,7 @@ export default function Employees() {
 
   return (
     <Layout>
-      <div className="flex items-center justify-between space-y-2">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-6">
         <div>
           <h2 className="text-3xl font-bold tracking-tight">Employees</h2>
           <p className="text-muted-foreground">Directory and records.</p>
@@ -50,8 +50,10 @@ export default function Employees() {
               <div className="grid gap-1">
                 <CardTitle className="text-lg">{employee.name}</CardTitle>
                 <div className="text-sm text-muted-foreground">{employee.position}</div>
-                <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">
-                  {employee.department}
+                <div className="w-fit">
+                  <div className="flex items-center rounded-full border px-2 py-1 text-[11px] font-semibold border-transparent bg-secondary text-secondary-foreground">
+                    {employee.department}
+                  </div>
                 </div>
               </div>
             </CardHeader>

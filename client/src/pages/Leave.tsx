@@ -12,13 +12,76 @@ import { format } from "date-fns";
 import { useState } from "react";
 import { leaveRequests } from "@/lib/mockData";
 import { Badge } from "@/components/ui/badge";
+import { useToast } from "@/hooks/use-toast";
+
+type LeaveType = "annual" | "sick" | "remote" | "unpaid" | "";
 
 export default function Leave() {
-  const [date, setDate] = useState<Date>();
+  const [startDate, setStartDate] = useState<Date>();
+  const [endDate, setEndDate] = useState<Date>();
+  const [leaveType, setLeaveType] = useState<LeaveType>("");
+  const [reason, setReason] = useState("");
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmitRequest = async () => {
+    if (!leaveType) {
+      toast({
+        title: "Validation Error",
+        description: "Please select a leave type.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!startDate) {
+      toast({
+        title: "Validation Error",
+        description: "Please select a start date.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!endDate) {
+      toast({
+        title: "Validation Error",
+        description: "Please select an end date.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (endDate < startDate) {
+      toast({
+        title: "Validation Error",
+        description: "End date must be after start date.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      toast({
+        title: "Request Submitted",
+        description: `Your ${leaveType} leave request has been submitted successfully.`,
+      });
+      
+      // Reset form
+      setStartDate(undefined);
+      setEndDate(undefined);
+      setLeaveType("");
+      setReason("");
+      setIsSubmitting(false);
+    }, 500);
+  };
 
   return (
     <Layout>
-      <div className="flex items-center justify-between space-y-2">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-6">
         <div>
           <h2 className="text-3xl font-bold tracking-tight">Leave & WFH</h2>
           <p className="text-muted-foreground">Manage your time off and work location.</p>
@@ -33,8 +96,8 @@ export default function Leave() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label>Request Type</Label>
-              <Select>
+              <Label>Request Type *</Label>
+              <Select value={leaveType} onValueChange={(val: LeaveType) => setLeaveType(val)}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select type" />
                 </SelectTrigger>
@@ -48,25 +111,25 @@ export default function Leave() {
             </div>
             
             <div className="space-y-2">
-              <Label>Start Date</Label>
+              <Label>Start Date *</Label>
               <Popover>
                 <PopoverTrigger asChild>
                   <Button
                     variant={"outline"}
                     className={cn(
                       "w-full justify-start text-left font-normal",
-                      !date && "text-muted-foreground"
+                      !startDate && "text-muted-foreground"
                     )}
                   >
                     <CalendarIcon className="mr-2 h-4 w-4" />
-                    {date ? format(date, "PPP") : <span>Pick a date</span>}
+                    {startDate ? format(startDate, "PPP") : <span>Pick a date</span>}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0">
                   <Calendar
                     mode="single"
-                    selected={date}
-                    onSelect={setDate}
+                    selected={startDate}
+                    onSelect={setStartDate}
                     initialFocus
                   />
                 </PopoverContent>
@@ -74,11 +137,47 @@ export default function Leave() {
             </div>
 
             <div className="space-y-2">
-              <Label>Reason</Label>
-              <Textarea placeholder="Optional description..." />
+              <Label>End Date *</Label>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant={"outline"}
+                    className={cn(
+                      "w-full justify-start text-left font-normal",
+                      !endDate && "text-muted-foreground"
+                    )}
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    {endDate ? format(endDate, "PPP") : <span>Pick a date</span>}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0">
+                  <Calendar
+                    mode="single"
+                    selected={endDate}
+                    onSelect={setEndDate}
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
             </div>
 
-            <Button className="w-full">Submit Request</Button>
+            <div className="space-y-2">
+              <Label>Reason (Optional)</Label>
+              <Textarea 
+                placeholder="Optional description..." 
+                value={reason}
+                onChange={(e) => setReason(e.target.value)}
+              />
+            </div>
+
+            <Button 
+              onClick={handleSubmitRequest} 
+              disabled={isSubmitting}
+              className="w-full"
+            >
+              {isSubmitting ? "Submitting..." : "Submit Request"}
+            </Button>
           </CardContent>
         </Card>
 
