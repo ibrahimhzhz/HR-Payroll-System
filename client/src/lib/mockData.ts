@@ -51,7 +51,7 @@ export const currentUser: User = {
   name: "Ahmad Younis",
   email: "ahmad.younis@company.com",
   role: "admin", // Default role for initial view, will add switcher
-  avatar: "/AhmadYounisEstadeem.jpg",
+  avatar: `${import.meta.env.BASE_URL}AhmadYounisEstadeem.jpg`,
   department: "Executive",
   position: "CEO",
   joinDate: "2022-03-15",
