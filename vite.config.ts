@@ -5,11 +5,18 @@ import path from "path";
 import { metaImagesPlugin } from "./vite-plugin-meta-images";
 
 export default defineConfig({
+  // Use "/" for dev, "/HR-Payroll-System/" for GitHub Pages
+  base: process.env.NODE_ENV === "production" ? "/HR-Payroll-System/" : "/",
+
   plugins: [
     react(),
     tailwindcss(),
     metaImagesPlugin(),
   ],
+
+  // Your app lives in /client
+  root: path.resolve(import.meta.dirname, "client"),
+
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -17,17 +24,20 @@ export default defineConfig({
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
+
   css: {
     postcss: {
       plugins: [],
     },
   },
-  root: path.resolve(import.meta.dirname, "client"),
+
   build: {
+    // Output goes to /dist at repo root
     outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
     sourcemap: false,
   },
+
   server: {
     host: "0.0.0.0",
     allowedHosts: true,
