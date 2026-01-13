@@ -5,8 +5,8 @@ import path from "path";
 import { metaImagesPlugin } from "./vite-plugin-meta-images";
 
 export default defineConfig({
-  // Use "/" for dev, "/HR-Payroll-System/" for GitHub Pages
-  base: process.env.NODE_ENV === "production" ? "/HR-Payroll-System/" : "/",
+  // Use "/" for Vercel deployment
+  base: "/",
 
   plugins: [
     react(),
